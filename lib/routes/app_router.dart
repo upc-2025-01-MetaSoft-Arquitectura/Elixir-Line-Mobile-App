@@ -6,6 +6,14 @@ class $AppRouter extends RootStackRouter {
   @override
   final List<AutoRoute> routes = [
     AutoRoute(page: SignInRoute.page, initial: true),
-    AutoRoute(page: ProfileRoute.page)  
+    AutoRoute(
+      page: MainRoute.page,
+      children: [
+        AutoRoute(page: HomeRoute.page),
+        AutoRoute(page: TasksRoute.page),
+        AutoRoute(page: MapRoute.page),
+        AutoRoute(page: ProfileRoute.page),
+      ],
+    ),
   ];
 }

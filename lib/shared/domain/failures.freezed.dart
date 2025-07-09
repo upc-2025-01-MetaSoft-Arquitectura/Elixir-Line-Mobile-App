@@ -86,12 +86,13 @@ extension ValueFailurePatterns<T> on ValueFailure<T> {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( InvalidEmail<T> value)?  invalidEmail,TResult Function( ShortPassword<T> value)?  shortPassword,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( InvalidEmail<T> value)?  invalidEmail,TResult Function( ShortPassword<T> value)?  shortPassword,TResult Function( Empty<T> value)?  empty,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case InvalidEmail() when invalidEmail != null:
 return invalidEmail(_that);case ShortPassword() when shortPassword != null:
-return shortPassword(_that);case _:
+return shortPassword(_that);case Empty() when empty != null:
+return empty(_that);case _:
   return orElse();
 
 }
@@ -109,12 +110,13 @@ return shortPassword(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( InvalidEmail<T> value)  invalidEmail,required TResult Function( ShortPassword<T> value)  shortPassword,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( InvalidEmail<T> value)  invalidEmail,required TResult Function( ShortPassword<T> value)  shortPassword,required TResult Function( Empty<T> value)  empty,}){
 final _that = this;
 switch (_that) {
 case InvalidEmail():
 return invalidEmail(_that);case ShortPassword():
-return shortPassword(_that);case _:
+return shortPassword(_that);case Empty():
+return empty(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -131,12 +133,13 @@ return shortPassword(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( InvalidEmail<T> value)?  invalidEmail,TResult? Function( ShortPassword<T> value)?  shortPassword,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( InvalidEmail<T> value)?  invalidEmail,TResult? Function( ShortPassword<T> value)?  shortPassword,TResult? Function( Empty<T> value)?  empty,}){
 final _that = this;
 switch (_that) {
 case InvalidEmail() when invalidEmail != null:
 return invalidEmail(_that);case ShortPassword() when shortPassword != null:
-return shortPassword(_that);case _:
+return shortPassword(_that);case Empty() when empty != null:
+return empty(_that);case _:
   return null;
 
 }
@@ -153,11 +156,12 @@ return shortPassword(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( T failedValue)?  invalidEmail,TResult Function( T failedValue)?  shortPassword,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( T failedValue)?  invalidEmail,TResult Function( T failedValue)?  shortPassword,TResult Function( T failedValue)?  empty,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case InvalidEmail() when invalidEmail != null:
 return invalidEmail(_that.failedValue);case ShortPassword() when shortPassword != null:
-return shortPassword(_that.failedValue);case _:
+return shortPassword(_that.failedValue);case Empty() when empty != null:
+return empty(_that.failedValue);case _:
   return orElse();
 
 }
@@ -175,11 +179,12 @@ return shortPassword(_that.failedValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( T failedValue)  invalidEmail,required TResult Function( T failedValue)  shortPassword,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( T failedValue)  invalidEmail,required TResult Function( T failedValue)  shortPassword,required TResult Function( T failedValue)  empty,}) {final _that = this;
 switch (_that) {
 case InvalidEmail():
 return invalidEmail(_that.failedValue);case ShortPassword():
-return shortPassword(_that.failedValue);case _:
+return shortPassword(_that.failedValue);case Empty():
+return empty(_that.failedValue);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -196,11 +201,12 @@ return shortPassword(_that.failedValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( T failedValue)?  invalidEmail,TResult? Function( T failedValue)?  shortPassword,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( T failedValue)?  invalidEmail,TResult? Function( T failedValue)?  shortPassword,TResult? Function( T failedValue)?  empty,}) {final _that = this;
 switch (_that) {
 case InvalidEmail() when invalidEmail != null:
 return invalidEmail(_that.failedValue);case ShortPassword() when shortPassword != null:
-return shortPassword(_that.failedValue);case _:
+return shortPassword(_that.failedValue);case Empty() when empty != null:
+return empty(_that.failedValue);case _:
   return null;
 
 }
@@ -332,6 +338,72 @@ class _$ShortPasswordCopyWithImpl<T,$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? failedValue = freezed,}) {
   return _then(ShortPassword<T>(
+failedValue: freezed == failedValue ? _self.failedValue : failedValue // ignore: cast_nullable_to_non_nullable
+as T,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class Empty<T> implements ValueFailure<T> {
+  const Empty({required this.failedValue});
+  
+
+@override final  T failedValue;
+
+/// Create a copy of ValueFailure
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$EmptyCopyWith<T, Empty<T>> get copyWith => _$EmptyCopyWithImpl<T, Empty<T>>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Empty<T>&&const DeepCollectionEquality().equals(other.failedValue, failedValue));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(failedValue));
+
+@override
+String toString() {
+  return 'ValueFailure<$T>.empty(failedValue: $failedValue)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $EmptyCopyWith<T,$Res> implements $ValueFailureCopyWith<T, $Res> {
+  factory $EmptyCopyWith(Empty<T> value, $Res Function(Empty<T>) _then) = _$EmptyCopyWithImpl;
+@override @useResult
+$Res call({
+ T failedValue
+});
+
+
+
+
+}
+/// @nodoc
+class _$EmptyCopyWithImpl<T,$Res>
+    implements $EmptyCopyWith<T, $Res> {
+  _$EmptyCopyWithImpl(this._self, this._then);
+
+  final Empty<T> _self;
+  final $Res Function(Empty<T>) _then;
+
+/// Create a copy of ValueFailure
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? failedValue = freezed,}) {
+  return _then(Empty<T>(
 failedValue: freezed == failedValue ? _self.failedValue : failedValue // ignore: cast_nullable_to_non_nullable
 as T,
   ));

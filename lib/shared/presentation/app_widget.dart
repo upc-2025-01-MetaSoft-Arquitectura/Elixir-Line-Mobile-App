@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:myapp/1-auth/application/auth_state.dart';
 import 'package:myapp/routes/app_router.dart';
+import 'package:myapp/routes/app_router.gr.dart';
 import '../../injection.dart';
-import '../../auth/application/auth_bloc.dart';
-import '../../auth/application/auth_event.dart';  
+import '../../1-auth/application/auth_bloc.dart';
+import '../../1-auth/application/auth_event.dart';  
 
 class AppWidget extends StatelessWidget {
   final _appRouter = $AppRouter();
-
   AppWidget({super.key});
 
   @override
@@ -16,8 +17,7 @@ class AppWidget extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) =>
-              getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),  
+          create: (_) => getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
         ),
       ],
       child: MaterialApp.router(
@@ -29,7 +29,25 @@ class AppWidget extends StatelessWidget {
           ),
         ),
         routeInformationParser: _appRouter.defaultRouteParser(),
-        routerDelegate: AutoRouterDelegate(_appRouter),
+        routerDelegate: AutoRouterDelegate(
+          _appRouter,
+          navigatorObservers: () => [
+            AutoRouteObserver(),
+          ],
+        ),
+        builder: (context, child) {
+          return BlocListener<AuthBloc, AuthState>(
+            listener: (context, state) {
+              final rootRouter = AutoRouter.of(context).root;
+              if (state == const AuthState.unauthenticated()) {
+                rootRouter.replaceAll([const SignInRoute()]);
+              } else if (state == const AuthState.authenticated()) {
+                rootRouter.replaceAll([const MainRoute()]);
+              }
+            },
+            child: child!,
+          );
+        },
       ),
     );
   }
