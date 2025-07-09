@@ -11,7 +11,7 @@ class AuthBackground extends StatelessWidget {
       children: [
         SizedBox.expand(
           child: Image.network(
-            'https://i.postimg.cc/Qd1xCyMR/app-background-best-quality-optimized.jpg',
+            'https://i.postimg.cc/4ybjPJPj/campo.jpg',
             fit: BoxFit.cover,
           ),
         ),

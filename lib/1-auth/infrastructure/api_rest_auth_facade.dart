@@ -62,6 +62,8 @@ class RestAuthFacade implements IAuthFacade {
 
   @override
   Future<void> signOut() async {
+    print('Limpieza de AuthStorage iniciada...');
     await _authStorage.clear(); 
+    print('AuthStorage limpiado.');
   }
 }

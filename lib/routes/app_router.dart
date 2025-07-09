@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:myapp/3-tasks/presentation/pages/empty_router_page.dart';
 import 'package:myapp/routes/app_router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
@@ -11,13 +10,12 @@ class $AppRouter extends RootStackRouter {
       page: MainRoute.page,
       children: [
         AutoRoute(page: HomeRoute.page),
-        AutoRoute(
-          page: TasksRoute.page, 
-          path: 'tasks',
-        ),
+        AutoRoute(page: TasksRoute.page, path: 'tasks'),
         AutoRoute(page: MapRoute.page),
         AutoRoute(page: ProfileRoute.page),
       ],
     ),
+    AutoRoute(page: TaskDetailWrapperRoute.page),
   ];
 }
+

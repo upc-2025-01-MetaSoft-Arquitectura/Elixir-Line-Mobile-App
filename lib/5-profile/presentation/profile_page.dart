@@ -25,6 +25,7 @@ class ProfilePage extends StatelessWidget {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state == const AuthState.unauthenticated()) {
+          print('Usuario no autenticado, redirigiendo a la pantalla de inicio de sesión...'); 
           context.router.replaceAll([const SignInRoute()]);
         }
       },

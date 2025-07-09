@@ -30,7 +30,7 @@ class _SignInFormState extends State<SignInForm> {
               SnackBar(content: Text(_mapFailureToMessage(failure))),
             ),
             (_) {
-              AutoRouter.of(context).replace(const ProfileRoute());
+              AutoRouter.of(context).replace(const HomeRoute());
             },
           ),
         );

@@ -15,6 +15,9 @@ class TaskRepository implements ITaskRepository {
   @override
   Future<dartz.Either<TaskFailure, List<Task>>> getTasksForWinegrower(int winegrowerId) async {
     final token = await _authStorage.getToken();
+    print('ID del viticultor: $winegrowerId');
+
+
     try {
       final response = await http.get(
         Uri.parse('${ApiConstants.baseUrl}/tasks/winegrower/$winegrowerId'),
@@ -24,14 +27,19 @@ class TaskRepository implements ITaskRepository {
         },
       );
 
+      print('Respuesta de la API: ${response.statusCode}'); 
+      print('Cuerpo de la respuesta: ${response.body}'); 
+
       if (response.statusCode == 200) {
         final List<dynamic> data = json.decode(response.body);
         final tasks = data.map((json) => Task.fromJson(json)).toList();
         return dartz.right(tasks); 
       } else {
+        print('Error al obtener tareas: ${response.statusCode}');
         return dartz.left(const TaskFailure.unableToFetch()); 
       }
     } catch (e) {
+      print('Error inesperado: $e');
       return dartz.left(const TaskFailure.unexpected());
     }
   }

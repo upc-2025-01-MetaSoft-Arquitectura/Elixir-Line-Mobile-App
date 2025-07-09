@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/3-tasks/domain/task.dart';
+import 'package:myapp/routes/app_router.gr.dart';
 
 class TaskCard extends StatelessWidget {
   final Task task;
@@ -42,48 +44,53 @@ class TaskCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 2,
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(task.title, style: Theme.of(context).textTheme.titleMedium),
-            const SizedBox(height: 8),
-            Text(task.description, style: Theme.of(context).textTheme.bodyMedium),
-            const SizedBox(height: 12),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Chip(
-                  label: Text(statusLabel),
-                  backgroundColor: statusColor.withAlpha((255 * 0.2).round()),
-                  labelStyle: TextStyle(color: statusColor),
-                ),
-                Text('${task.progressPercentage}%', style: const TextStyle(fontWeight: FontWeight.bold)),
-              ],
-            ),
-            const SizedBox(height: 8),
-            LinearProgressIndicator(
-              value: task.progressPercentage / 100,
-              color: statusColor,
-              backgroundColor: Colors.grey.shade300,
-            ),
-            const SizedBox(height: 8),
-            Text('Inicio: ${task.startDate}'),
-            Text('Fin: ${task.endDate}'),
-            const SizedBox(height: 8), 
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Chip(
-                label: Text(taskTypeLabel),
-                backgroundColor: taskTypeColor.withAlpha((255 * 0.2).round()),
-                labelStyle: TextStyle(color: taskTypeColor),
+    return GestureDetector(
+      onTap: () {
+        context.router.push(TaskDetailWrapperRoute(task: task));
+      },
+      child: Card(
+        elevation: 2,
+        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(task.title, style: Theme.of(context).textTheme.titleMedium),
+              const SizedBox(height: 8),
+              Text(task.description, style: Theme.of(context).textTheme.bodyMedium),
+              const SizedBox(height: 12),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Chip(
+                    label: Text(statusLabel),
+                    backgroundColor: statusColor.withAlpha((255 * 0.2).round()),
+                    labelStyle: TextStyle(color: statusColor),
+                  ),
+                  Text('${task.progressPercentage}%', style: const TextStyle(fontWeight: FontWeight.bold)),
+                ],
               ),
-            ),
-          ],
+              const SizedBox(height: 8),
+              LinearProgressIndicator(
+                value: task.progressPercentage / 100,
+                color: statusColor,
+                backgroundColor: Colors.grey.shade300,
+              ),
+              const SizedBox(height: 8),
+              Text('Inicio: ${task.startDate}'),
+              Text('Fin: ${task.endDate}'),
+              const SizedBox(height: 8), 
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Chip(
+                  label: Text(taskTypeLabel),
+                  backgroundColor: taskTypeColor.withAlpha((255 * 0.2).round()),
+                  labelStyle: TextStyle(color: taskTypeColor),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
