@@ -21,6 +21,10 @@ class _TaskPageState extends State<TaskPage> {
   @override
   void initState() {
     super.initState();
+    _loadTasks(); 
+  }
+
+  Future<void> _loadTasks() async {
     context.read<TaskBloc>().add(const TaskEvent.loaded());
   }
 
@@ -55,22 +59,25 @@ class _TaskPageState extends State<TaskPage> {
                   return state.when(
                     initial: () => const SizedBox.shrink(),
                     loading: () => const Center(child: CircularProgressIndicator()),
-                    loadSuccess: (tasks) => ListView(
-                      children: tasks
-                          .where((task) {
-                            switch (selectedFilter) {
-                              case TaskFilter.all:
-                                return true;
-                              case TaskFilter.pending:
-                                return task.status == 'NOT_STARTED';
-                              case TaskFilter.inProgress:
-                                return task.status == 'IN_PROCESS';
-                              case TaskFilter.done:
-                                return task.status == 'FINISHED';
-                            }
-                          })
-                          .map((task) => TaskCard(task: task))
-                          .toList(),
+                    loadSuccess: (tasks) => RefreshIndicator( 
+                      onRefresh: _loadTasks,
+                      child: ListView(
+                        children: tasks
+                            .where((task) {
+                              switch (selectedFilter) {
+                                case TaskFilter.all:
+                                  return true;
+                                case TaskFilter.pending:
+                                  return task.status == 'NOT_STARTED';
+                                case TaskFilter.inProgress:
+                                  return task.status == 'IN_PROCESS';
+                                case TaskFilter.done:
+                                  return task.status == 'FINISHED';
+                              }
+                            })
+                            .map((task) => TaskCard(task: task))
+                            .toList(),
+                      ),
                     ),
                     loadFailure: (_) =>
                         const Center(child: Text('Error al cargar tareas')),

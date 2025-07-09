@@ -18,8 +18,24 @@ class TaskCard extends StatelessWidget {
   Color get statusColor {
     return switch (task.status) {
       'NOT_STARTED' => Colors.grey,
-      'IN_PROCESS' => Colors.orange,
+      'IN_PROCESS' => const Color.fromARGB(255, 60, 133, 216),
       'FINISHED' => Colors.green,
+      _ => Colors.blueGrey,
+    };
+  }
+
+  String get taskTypeLabel {
+    return switch (task.type) {
+      'TASK_INDUSTRY' => 'Tarea Industrial',
+      'TASK_FIELD' => 'Tarea de Campo',
+      _ => 'Tipo Desconocido',
+    };
+  }
+
+  Color get taskTypeColor {
+    return switch (task.type) {
+      'TASK_INDUSTRY' => Colors.orange,
+      'TASK_FIELD' => Colors.green,
       _ => Colors.blueGrey,
     };
   }
@@ -58,6 +74,15 @@ class TaskCard extends StatelessWidget {
             const SizedBox(height: 8),
             Text('Inicio: ${task.startDate}'),
             Text('Fin: ${task.endDate}'),
+            const SizedBox(height: 8), 
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Chip(
+                label: Text(taskTypeLabel),
+                backgroundColor: taskTypeColor.withAlpha((255 * 0.2).round()),
+                labelStyle: TextStyle(color: taskTypeColor),
+              ),
+            ),
           ],
         ),
       ),
