@@ -17,10 +17,14 @@ import 'package:myapp/1-auth/application/sign_in_form/sign_in_form_bloc.dart'
 import 'package:myapp/1-auth/domain/i_auth_facade.dart' as _i91;
 import 'package:myapp/1-auth/infrastructure/api_rest_auth_facade.dart'
     as _i1044;
+import 'package:myapp/3-tasks/application/task_bloc.dart' as _i685;
+import 'package:myapp/3-tasks/domain/i_task_repository.dart' as _i410;
+import 'package:myapp/3-tasks/infrastructure/task_repository.dart' as _i578;
 import 'package:myapp/5-profile/application/profile_bloc.dart' as _i1072;
 import 'package:myapp/5-profile/domain/i_profile_repository.dart' as _i227;
 import 'package:myapp/5-profile/infrastructure/profile_repository.dart'
     as _i1044;
+import 'package:myapp/shared/infrastructure/auth_storage.dart' as _i224;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -29,12 +33,18 @@ extension GetItInjectableX on _i174.GetIt {
     _i526.EnvironmentFilter? environmentFilter,
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
+    gh.factory<_i224.AuthStorage>(() => _i224.AuthStorage());
     gh.lazySingleton<_i91.IAuthFacade>(() => _i1044.RestAuthFacade());
+    gh.lazySingleton<_i410.ITaskRepository>(() => _i578.TaskRepository());
     gh.lazySingleton<_i227.IProfileRepository>(
       () => _i1044.ProfileRepository(),
     );
     gh.factory<_i1072.ProfileBloc>(
       () => _i1072.ProfileBloc(gh<_i227.IProfileRepository>()),
+    );
+    gh.factory<_i685.TaskBloc>(
+      () =>
+          _i685.TaskBloc(gh<_i410.ITaskRepository>(), gh<_i224.AuthStorage>()),
     );
     gh.factory<_i228.SignInFormBloc>(
       () => _i228.SignInFormBloc(gh<_i91.IAuthFacade>()),

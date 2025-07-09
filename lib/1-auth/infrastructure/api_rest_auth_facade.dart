@@ -33,6 +33,8 @@ class RestAuthFacade implements IAuthFacade {
           token: user.token,
           userId: user.id,
           email: user.email,
+          winegrowerId: 0,
+          fieldWorkerId: 0
         );
         print('Datos guardados: ${user.id}, ${user.email}, ${user.token}');
         return right(user);

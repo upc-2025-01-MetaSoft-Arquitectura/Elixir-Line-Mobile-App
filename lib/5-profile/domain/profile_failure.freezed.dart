@@ -1,5 +1,5 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,274 +9,411 @@ part of 'profile_failure.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// dart format off
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
+
 /// @nodoc
 mixin _$ProfileFailure {
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProfileFailure);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'ProfileFailure()';
-}
-
-
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unexpected,
+    required TResult Function() unableToUpdate,
+    required TResult Function() unauthenticated,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? unexpected,
+    TResult? Function()? unableToUpdate,
+    TResult? Function()? unauthenticated,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpected,
+    TResult Function()? unableToUpdate,
+    TResult Function()? unauthenticated,
+    required TResult orElse(),
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Unexpected value) unexpected,
+    required TResult Function(UnableToUpdate value) unableToUpdate,
+    required TResult Function(Unauthenticated value) unauthenticated,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Unexpected value)? unexpected,
+    TResult? Function(UnableToUpdate value)? unableToUpdate,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Unexpected value)? unexpected,
+    TResult Function(UnableToUpdate value)? unableToUpdate,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    required TResult orElse(),
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-class $ProfileFailureCopyWith<$Res>  {
-$ProfileFailureCopyWith(ProfileFailure _, $Res Function(ProfileFailure) __);
+abstract class $ProfileFailureCopyWith<$Res> {
+  factory $ProfileFailureCopyWith(
+    ProfileFailure value,
+    $Res Function(ProfileFailure) then,
+  ) = _$ProfileFailureCopyWithImpl<$Res, ProfileFailure>;
 }
 
+/// @nodoc
+class _$ProfileFailureCopyWithImpl<$Res, $Val extends ProfileFailure>
+    implements $ProfileFailureCopyWith<$Res> {
+  _$ProfileFailureCopyWithImpl(this._value, this._then);
 
-/// Adds pattern-matching-related methods to [ProfileFailure].
-extension ProfileFailurePatterns on ProfileFailure {
-/// A variant of `map` that fallback to returning `orElse`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( Unexpected value)?  unexpected,TResult Function( UnableToUpdate value)?  unableToUpdate,TResult Function( Unauthenticated value)?  unauthenticated,required TResult orElse(),}){
-final _that = this;
-switch (_that) {
-case Unexpected() when unexpected != null:
-return unexpected(_that);case UnableToUpdate() when unableToUpdate != null:
-return unableToUpdate(_that);case Unauthenticated() when unauthenticated != null:
-return unauthenticated(_that);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// Callbacks receives the raw object, upcasted.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case final Subclass2 value:
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( Unexpected value)  unexpected,required TResult Function( UnableToUpdate value)  unableToUpdate,required TResult Function( Unauthenticated value)  unauthenticated,}){
-final _that = this;
-switch (_that) {
-case Unexpected():
-return unexpected(_that);case UnableToUpdate():
-return unableToUpdate(_that);case Unauthenticated():
-return unauthenticated(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
-}
-/// A variant of `map` that fallback to returning `null`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( Unexpected value)?  unexpected,TResult? Function( UnableToUpdate value)?  unableToUpdate,TResult? Function( Unauthenticated value)?  unauthenticated,}){
-final _that = this;
-switch (_that) {
-case Unexpected() when unexpected != null:
-return unexpected(_that);case UnableToUpdate() when unableToUpdate != null:
-return unableToUpdate(_that);case Unauthenticated() when unauthenticated != null:
-return unauthenticated(_that);case _:
-  return null;
-
-}
-}
-/// A variant of `when` that fallback to an `orElse` callback.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
-
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  unexpected,TResult Function()?  unableToUpdate,TResult Function()?  unauthenticated,required TResult orElse(),}) {final _that = this;
-switch (_that) {
-case Unexpected() when unexpected != null:
-return unexpected();case UnableToUpdate() when unableToUpdate != null:
-return unableToUpdate();case Unauthenticated() when unauthenticated != null:
-return unauthenticated();case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// As opposed to `map`, this offers destructuring.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case Subclass2(:final field2):
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  unexpected,required TResult Function()  unableToUpdate,required TResult Function()  unauthenticated,}) {final _that = this;
-switch (_that) {
-case Unexpected():
-return unexpected();case UnableToUpdate():
-return unableToUpdate();case Unauthenticated():
-return unauthenticated();case _:
-  throw StateError('Unexpected subclass');
-
-}
-}
-/// A variant of `when` that fallback to returning `null`
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  unexpected,TResult? Function()?  unableToUpdate,TResult? Function()?  unauthenticated,}) {final _that = this;
-switch (_that) {
-case Unexpected() when unexpected != null:
-return unexpected();case UnableToUpdate() when unableToUpdate != null:
-return unableToUpdate();case Unauthenticated() when unauthenticated != null:
-return unauthenticated();case _:
-  return null;
-
-}
+  /// Create a copy of ProfileFailure
+  /// with the given fields replaced by the non-null parameter values.
 }
 
+/// @nodoc
+abstract class _$$UnexpectedImplCopyWith<$Res> {
+  factory _$$UnexpectedImplCopyWith(
+    _$UnexpectedImpl value,
+    $Res Function(_$UnexpectedImpl) then,
+  ) = __$$UnexpectedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UnexpectedImplCopyWithImpl<$Res>
+    extends _$ProfileFailureCopyWithImpl<$Res, _$UnexpectedImpl>
+    implements _$$UnexpectedImplCopyWith<$Res> {
+  __$$UnexpectedImplCopyWithImpl(
+    _$UnexpectedImpl _value,
+    $Res Function(_$UnexpectedImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of ProfileFailure
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
+class _$UnexpectedImpl implements Unexpected {
+  const _$UnexpectedImpl();
 
-class Unexpected implements ProfileFailure {
-  const Unexpected();
-  
+  @override
+  String toString() {
+    return 'ProfileFailure.unexpected()';
+  }
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UnexpectedImpl);
+  }
 
+  @override
+  int get hashCode => runtimeType.hashCode;
 
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unexpected,
+    required TResult Function() unableToUpdate,
+    required TResult Function() unauthenticated,
+  }) {
+    return unexpected();
+  }
 
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? unexpected,
+    TResult? Function()? unableToUpdate,
+    TResult? Function()? unauthenticated,
+  }) {
+    return unexpected?.call();
+  }
 
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpected,
+    TResult Function()? unableToUpdate,
+    TResult Function()? unauthenticated,
+    required TResult orElse(),
+  }) {
+    if (unexpected != null) {
+      return unexpected();
+    }
+    return orElse();
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Unexpected);
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Unexpected value) unexpected,
+    required TResult Function(UnableToUpdate value) unableToUpdate,
+    required TResult Function(Unauthenticated value) unauthenticated,
+  }) {
+    return unexpected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Unexpected value)? unexpected,
+    TResult? Function(UnableToUpdate value)? unableToUpdate,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+  }) {
+    return unexpected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Unexpected value)? unexpected,
+    TResult Function(UnableToUpdate value)? unableToUpdate,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    required TResult orElse(),
+  }) {
+    if (unexpected != null) {
+      return unexpected(this);
+    }
+    return orElse();
+  }
 }
 
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'ProfileFailure.unexpected()';
+abstract class Unexpected implements ProfileFailure {
+  const factory Unexpected() = _$UnexpectedImpl;
 }
 
-
+/// @nodoc
+abstract class _$$UnableToUpdateImplCopyWith<$Res> {
+  factory _$$UnableToUpdateImplCopyWith(
+    _$UnableToUpdateImpl value,
+    $Res Function(_$UnableToUpdateImpl) then,
+  ) = __$$UnableToUpdateImplCopyWithImpl<$Res>;
 }
 
+/// @nodoc
+class __$$UnableToUpdateImplCopyWithImpl<$Res>
+    extends _$ProfileFailureCopyWithImpl<$Res, _$UnableToUpdateImpl>
+    implements _$$UnableToUpdateImplCopyWith<$Res> {
+  __$$UnableToUpdateImplCopyWithImpl(
+    _$UnableToUpdateImpl _value,
+    $Res Function(_$UnableToUpdateImpl) _then,
+  ) : super(_value, _then);
 
-
+  /// Create a copy of ProfileFailure
+  /// with the given fields replaced by the non-null parameter values.
+}
 
 /// @nodoc
 
+class _$UnableToUpdateImpl implements UnableToUpdate {
+  const _$UnableToUpdateImpl();
 
-class UnableToUpdate implements ProfileFailure {
-  const UnableToUpdate();
-  
+  @override
+  String toString() {
+    return 'ProfileFailure.unableToUpdate()';
+  }
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UnableToUpdateImpl);
+  }
 
+  @override
+  int get hashCode => runtimeType.hashCode;
 
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unexpected,
+    required TResult Function() unableToUpdate,
+    required TResult Function() unauthenticated,
+  }) {
+    return unableToUpdate();
+  }
 
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? unexpected,
+    TResult? Function()? unableToUpdate,
+    TResult? Function()? unauthenticated,
+  }) {
+    return unableToUpdate?.call();
+  }
 
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpected,
+    TResult Function()? unableToUpdate,
+    TResult Function()? unauthenticated,
+    required TResult orElse(),
+  }) {
+    if (unableToUpdate != null) {
+      return unableToUpdate();
+    }
+    return orElse();
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnableToUpdate);
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Unexpected value) unexpected,
+    required TResult Function(UnableToUpdate value) unableToUpdate,
+    required TResult Function(Unauthenticated value) unauthenticated,
+  }) {
+    return unableToUpdate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Unexpected value)? unexpected,
+    TResult? Function(UnableToUpdate value)? unableToUpdate,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+  }) {
+    return unableToUpdate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Unexpected value)? unexpected,
+    TResult Function(UnableToUpdate value)? unableToUpdate,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    required TResult orElse(),
+  }) {
+    if (unableToUpdate != null) {
+      return unableToUpdate(this);
+    }
+    return orElse();
+  }
 }
 
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'ProfileFailure.unableToUpdate()';
+abstract class UnableToUpdate implements ProfileFailure {
+  const factory UnableToUpdate() = _$UnableToUpdateImpl;
 }
 
-
+/// @nodoc
+abstract class _$$UnauthenticatedImplCopyWith<$Res> {
+  factory _$$UnauthenticatedImplCopyWith(
+    _$UnauthenticatedImpl value,
+    $Res Function(_$UnauthenticatedImpl) then,
+  ) = __$$UnauthenticatedImplCopyWithImpl<$Res>;
 }
 
+/// @nodoc
+class __$$UnauthenticatedImplCopyWithImpl<$Res>
+    extends _$ProfileFailureCopyWithImpl<$Res, _$UnauthenticatedImpl>
+    implements _$$UnauthenticatedImplCopyWith<$Res> {
+  __$$UnauthenticatedImplCopyWithImpl(
+    _$UnauthenticatedImpl _value,
+    $Res Function(_$UnauthenticatedImpl) _then,
+  ) : super(_value, _then);
 
-
+  /// Create a copy of ProfileFailure
+  /// with the given fields replaced by the non-null parameter values.
+}
 
 /// @nodoc
 
+class _$UnauthenticatedImpl implements Unauthenticated {
+  const _$UnauthenticatedImpl();
 
-class Unauthenticated implements ProfileFailure {
-  const Unauthenticated();
-  
+  @override
+  String toString() {
+    return 'ProfileFailure.unauthenticated()';
+  }
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UnauthenticatedImpl);
+  }
 
+  @override
+  int get hashCode => runtimeType.hashCode;
 
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unexpected,
+    required TResult Function() unableToUpdate,
+    required TResult Function() unauthenticated,
+  }) {
+    return unauthenticated();
+  }
 
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? unexpected,
+    TResult? Function()? unableToUpdate,
+    TResult? Function()? unauthenticated,
+  }) {
+    return unauthenticated?.call();
+  }
 
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpected,
+    TResult Function()? unableToUpdate,
+    TResult Function()? unauthenticated,
+    required TResult orElse(),
+  }) {
+    if (unauthenticated != null) {
+      return unauthenticated();
+    }
+    return orElse();
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Unauthenticated);
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Unexpected value) unexpected,
+    required TResult Function(UnableToUpdate value) unableToUpdate,
+    required TResult Function(Unauthenticated value) unauthenticated,
+  }) {
+    return unauthenticated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Unexpected value)? unexpected,
+    TResult? Function(UnableToUpdate value)? unableToUpdate,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+  }) {
+    return unauthenticated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Unexpected value)? unexpected,
+    TResult Function(UnableToUpdate value)? unableToUpdate,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    required TResult orElse(),
+  }) {
+    if (unauthenticated != null) {
+      return unauthenticated(this);
+    }
+    return orElse();
+  }
 }
 
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'ProfileFailure.unauthenticated()';
+abstract class Unauthenticated implements ProfileFailure {
+  const factory Unauthenticated() = _$UnauthenticatedImpl;
 }
-
-
-}
-
-
-
-
-// dart format on

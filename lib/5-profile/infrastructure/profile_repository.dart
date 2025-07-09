@@ -28,6 +28,15 @@ class ProfileRepository implements IProfileRepository {
         final data = json.decode(response.body);
         print('Datos del perfil: $data');
         final profile = Profile.fromJson(data);
+
+        await _authStorage.saveAuthData(
+          token: token!,
+          userId: userId,
+          email: await _authStorage.getUserEmail() ?? '',
+          winegrowerId: profile.winegrowerId,
+          fieldWorkerId: profile.id,
+        );
+
         return right(profile);
       } else {
         print('Error al cargar el perfil: ${response.statusCode}');

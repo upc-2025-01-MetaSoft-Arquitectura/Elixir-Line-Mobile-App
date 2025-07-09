@@ -1,5 +1,5 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,304 +9,356 @@ part of 'profile_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// dart format off
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
+
 /// @nodoc
 mixin _$ProfileEvent {
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProfileEvent);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'ProfileEvent()';
-}
-
-
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int userId) loaded,
+    required TResult Function(String imageUrl) updated,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int userId)? loaded,
+    TResult? Function(String imageUrl)? updated,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int userId)? loaded,
+    TResult Function(String imageUrl)? updated,
+    required TResult orElse(),
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ProfileLoaded value) loaded,
+    required TResult Function(ProfilePictureUpdated value) updated,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ProfileLoaded value)? loaded,
+    TResult? Function(ProfilePictureUpdated value)? updated,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ProfileLoaded value)? loaded,
+    TResult Function(ProfilePictureUpdated value)? updated,
+    required TResult orElse(),
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-class $ProfileEventCopyWith<$Res>  {
-$ProfileEventCopyWith(ProfileEvent _, $Res Function(ProfileEvent) __);
+abstract class $ProfileEventCopyWith<$Res> {
+  factory $ProfileEventCopyWith(
+    ProfileEvent value,
+    $Res Function(ProfileEvent) then,
+  ) = _$ProfileEventCopyWithImpl<$Res, ProfileEvent>;
 }
 
+/// @nodoc
+class _$ProfileEventCopyWithImpl<$Res, $Val extends ProfileEvent>
+    implements $ProfileEventCopyWith<$Res> {
+  _$ProfileEventCopyWithImpl(this._value, this._then);
 
-/// Adds pattern-matching-related methods to [ProfileEvent].
-extension ProfileEventPatterns on ProfileEvent {
-/// A variant of `map` that fallback to returning `orElse`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( ProfileLoaded value)?  loaded,TResult Function( ProfilePictureUpdated value)?  updated,required TResult orElse(),}){
-final _that = this;
-switch (_that) {
-case ProfileLoaded() when loaded != null:
-return loaded(_that);case ProfilePictureUpdated() when updated != null:
-return updated(_that);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// Callbacks receives the raw object, upcasted.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case final Subclass2 value:
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( ProfileLoaded value)  loaded,required TResult Function( ProfilePictureUpdated value)  updated,}){
-final _that = this;
-switch (_that) {
-case ProfileLoaded():
-return loaded(_that);case ProfilePictureUpdated():
-return updated(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
-}
-/// A variant of `map` that fallback to returning `null`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( ProfileLoaded value)?  loaded,TResult? Function( ProfilePictureUpdated value)?  updated,}){
-final _that = this;
-switch (_that) {
-case ProfileLoaded() when loaded != null:
-return loaded(_that);case ProfilePictureUpdated() when updated != null:
-return updated(_that);case _:
-  return null;
-
-}
-}
-/// A variant of `when` that fallback to an `orElse` callback.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
-
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( int userId)?  loaded,TResult Function( String imageUrl)?  updated,required TResult orElse(),}) {final _that = this;
-switch (_that) {
-case ProfileLoaded() when loaded != null:
-return loaded(_that.userId);case ProfilePictureUpdated() when updated != null:
-return updated(_that.imageUrl);case _:
-  return orElse();
-
-}
-}
-/// A `switch`-like method, using callbacks.
-///
-/// As opposed to `map`, this offers destructuring.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case Subclass2(:final field2):
-///     return ...;
-/// }
-/// ```
-
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( int userId)  loaded,required TResult Function( String imageUrl)  updated,}) {final _that = this;
-switch (_that) {
-case ProfileLoaded():
-return loaded(_that.userId);case ProfilePictureUpdated():
-return updated(_that.imageUrl);case _:
-  throw StateError('Unexpected subclass');
-
-}
-}
-/// A variant of `when` that fallback to returning `null`
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
-
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( int userId)?  loaded,TResult? Function( String imageUrl)?  updated,}) {final _that = this;
-switch (_that) {
-case ProfileLoaded() when loaded != null:
-return loaded(_that.userId);case ProfilePictureUpdated() when updated != null:
-return updated(_that.imageUrl);case _:
-  return null;
-
-}
+  /// Create a copy of ProfileEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
+/// @nodoc
+abstract class _$$ProfileLoadedImplCopyWith<$Res> {
+  factory _$$ProfileLoadedImplCopyWith(
+    _$ProfileLoadedImpl value,
+    $Res Function(_$ProfileLoadedImpl) then,
+  ) = __$$ProfileLoadedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int userId});
+}
+
+/// @nodoc
+class __$$ProfileLoadedImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$ProfileLoadedImpl>
+    implements _$$ProfileLoadedImplCopyWith<$Res> {
+  __$$ProfileLoadedImplCopyWithImpl(
+    _$ProfileLoadedImpl _value,
+    $Res Function(_$ProfileLoadedImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of ProfileEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? userId = null}) {
+    return _then(
+      _$ProfileLoadedImpl(
+        null == userId
+            ? _value.userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as int,
+      ),
+    );
+  }
 }
 
 /// @nodoc
 
+class _$ProfileLoadedImpl implements ProfileLoaded {
+  const _$ProfileLoadedImpl(this.userId);
 
-class ProfileLoaded implements ProfileEvent {
-  const ProfileLoaded(this.userId);
-  
+  @override
+  final int userId;
 
- final  int userId;
+  @override
+  String toString() {
+    return 'ProfileEvent.loaded(userId: $userId)';
+  }
 
-/// Create a copy of ProfileEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$ProfileLoadedCopyWith<ProfileLoaded> get copyWith => _$ProfileLoadedCopyWithImpl<ProfileLoaded>(this, _$identity);
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ProfileLoadedImpl &&
+            (identical(other.userId, userId) || other.userId == userId));
+  }
 
+  @override
+  int get hashCode => Object.hash(runtimeType, userId);
 
+  /// Create a copy of ProfileEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ProfileLoadedImplCopyWith<_$ProfileLoadedImpl> get copyWith =>
+      __$$ProfileLoadedImplCopyWithImpl<_$ProfileLoadedImpl>(this, _$identity);
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProfileLoaded&&(identical(other.userId, userId) || other.userId == userId));
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int userId) loaded,
+    required TResult Function(String imageUrl) updated,
+  }) {
+    return loaded(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int userId)? loaded,
+    TResult? Function(String imageUrl)? updated,
+  }) {
+    return loaded?.call(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int userId)? loaded,
+    TResult Function(String imageUrl)? updated,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ProfileLoaded value) loaded,
+    required TResult Function(ProfilePictureUpdated value) updated,
+  }) {
+    return loaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ProfileLoaded value)? loaded,
+    TResult? Function(ProfilePictureUpdated value)? updated,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ProfileLoaded value)? loaded,
+    TResult Function(ProfilePictureUpdated value)? updated,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(this);
+    }
+    return orElse();
+  }
 }
 
+abstract class ProfileLoaded implements ProfileEvent {
+  const factory ProfileLoaded(final int userId) = _$ProfileLoadedImpl;
 
-@override
-int get hashCode => Object.hash(runtimeType,userId);
+  int get userId;
 
-@override
-String toString() {
-  return 'ProfileEvent.loaded(userId: $userId)';
-}
-
-
+  /// Create a copy of ProfileEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ProfileLoadedImplCopyWith<_$ProfileLoadedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class $ProfileLoadedCopyWith<$Res> implements $ProfileEventCopyWith<$Res> {
-  factory $ProfileLoadedCopyWith(ProfileLoaded value, $Res Function(ProfileLoaded) _then) = _$ProfileLoadedCopyWithImpl;
-@useResult
-$Res call({
- int userId
-});
-
-
-
-
-}
-/// @nodoc
-class _$ProfileLoadedCopyWithImpl<$Res>
-    implements $ProfileLoadedCopyWith<$Res> {
-  _$ProfileLoadedCopyWithImpl(this._self, this._then);
-
-  final ProfileLoaded _self;
-  final $Res Function(ProfileLoaded) _then;
-
-/// Create a copy of ProfileEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? userId = null,}) {
-  return _then(ProfileLoaded(
-null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
-as int,
-  ));
-}
-
-
+abstract class _$$ProfilePictureUpdatedImplCopyWith<$Res> {
+  factory _$$ProfilePictureUpdatedImplCopyWith(
+    _$ProfilePictureUpdatedImpl value,
+    $Res Function(_$ProfilePictureUpdatedImpl) then,
+  ) = __$$ProfilePictureUpdatedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String imageUrl});
 }
 
 /// @nodoc
+class __$$ProfilePictureUpdatedImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$ProfilePictureUpdatedImpl>
+    implements _$$ProfilePictureUpdatedImplCopyWith<$Res> {
+  __$$ProfilePictureUpdatedImplCopyWithImpl(
+    _$ProfilePictureUpdatedImpl _value,
+    $Res Function(_$ProfilePictureUpdatedImpl) _then,
+  ) : super(_value, _then);
 
-
-class ProfilePictureUpdated implements ProfileEvent {
-  const ProfilePictureUpdated(this.imageUrl);
-  
-
- final  String imageUrl;
-
-/// Create a copy of ProfileEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$ProfilePictureUpdatedCopyWith<ProfilePictureUpdated> get copyWith => _$ProfilePictureUpdatedCopyWithImpl<ProfilePictureUpdated>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProfilePictureUpdated&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,imageUrl);
-
-@override
-String toString() {
-  return 'ProfileEvent.updated(imageUrl: $imageUrl)';
-}
-
-
+  /// Create a copy of ProfileEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? imageUrl = null}) {
+    return _then(
+      _$ProfilePictureUpdatedImpl(
+        null == imageUrl
+            ? _value.imageUrl
+            : imageUrl // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
+  }
 }
 
 /// @nodoc
-abstract mixin class $ProfilePictureUpdatedCopyWith<$Res> implements $ProfileEventCopyWith<$Res> {
-  factory $ProfilePictureUpdatedCopyWith(ProfilePictureUpdated value, $Res Function(ProfilePictureUpdated) _then) = _$ProfilePictureUpdatedCopyWithImpl;
-@useResult
-$Res call({
- String imageUrl
-});
 
+class _$ProfilePictureUpdatedImpl implements ProfilePictureUpdated {
+  const _$ProfilePictureUpdatedImpl(this.imageUrl);
 
+  @override
+  final String imageUrl;
 
+  @override
+  String toString() {
+    return 'ProfileEvent.updated(imageUrl: $imageUrl)';
+  }
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ProfilePictureUpdatedImpl &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, imageUrl);
+
+  /// Create a copy of ProfileEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ProfilePictureUpdatedImplCopyWith<_$ProfilePictureUpdatedImpl>
+  get copyWith =>
+      __$$ProfilePictureUpdatedImplCopyWithImpl<_$ProfilePictureUpdatedImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int userId) loaded,
+    required TResult Function(String imageUrl) updated,
+  }) {
+    return updated(imageUrl);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int userId)? loaded,
+    TResult? Function(String imageUrl)? updated,
+  }) {
+    return updated?.call(imageUrl);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int userId)? loaded,
+    TResult Function(String imageUrl)? updated,
+    required TResult orElse(),
+  }) {
+    if (updated != null) {
+      return updated(imageUrl);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ProfileLoaded value) loaded,
+    required TResult Function(ProfilePictureUpdated value) updated,
+  }) {
+    return updated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ProfileLoaded value)? loaded,
+    TResult? Function(ProfilePictureUpdated value)? updated,
+  }) {
+    return updated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ProfileLoaded value)? loaded,
+    TResult Function(ProfilePictureUpdated value)? updated,
+    required TResult orElse(),
+  }) {
+    if (updated != null) {
+      return updated(this);
+    }
+    return orElse();
+  }
 }
-/// @nodoc
-class _$ProfilePictureUpdatedCopyWithImpl<$Res>
-    implements $ProfilePictureUpdatedCopyWith<$Res> {
-  _$ProfilePictureUpdatedCopyWithImpl(this._self, this._then);
 
-  final ProfilePictureUpdated _self;
-  final $Res Function(ProfilePictureUpdated) _then;
+abstract class ProfilePictureUpdated implements ProfileEvent {
+  const factory ProfilePictureUpdated(final String imageUrl) =
+      _$ProfilePictureUpdatedImpl;
 
-/// Create a copy of ProfileEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? imageUrl = null,}) {
-  return _then(ProfilePictureUpdated(
-null == imageUrl ? _self.imageUrl : imageUrl // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
+  String get imageUrl;
+
+  /// Create a copy of ProfileEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ProfilePictureUpdatedImplCopyWith<_$ProfilePictureUpdatedImpl>
+  get copyWith => throw _privateConstructorUsedError;
 }
-
-
-}
-
-// dart format on

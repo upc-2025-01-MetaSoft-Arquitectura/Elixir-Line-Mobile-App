@@ -32,13 +32,14 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
-  freezed_annotation: ^3.1.0
+  freezed_annotation: ^2.4.4
   cached_network_image: ^3.4.1
   http: ^1.4.0
   dartz: ^0.10.1
   uuid: ^4.5.1
   injectable: ^2.5.0
   auto_route: ^10.1.0+1
+  auto_route_generator: ^10.2.3
   json_annotation: ^4.9.0
   google_fonts: ^6.2.1
   shared_preferences: ^2.5.3
@@ -55,9 +56,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: ^2.5.4
-  freezed: ^3.1.0
+  freezed: ^2.4.4
   injectable_generator: ^2.7.0
-  auto_route_generator: ^10.1.0+1
+  #auto_route_generator: ^10.1.0+1
   json_serializable: ^6.9.5
 
   # The "flutter_lints" package below contains a set of recommended lints to
