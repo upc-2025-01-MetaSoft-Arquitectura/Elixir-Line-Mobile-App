@@ -20,14 +20,18 @@ import 'package:myapp/3_tasks/application/evidences/evidence_bloc.dart'
     as _i434;
 import 'package:myapp/3_tasks/application/incidents/incident_bloc.dart'
     as _i682;
+import 'package:myapp/3_tasks/application/supplies/supply_bloc.dart' as _i592;
 import 'package:myapp/3_tasks/application/task_bloc.dart' as _i619;
 import 'package:myapp/3_tasks/domain/evidences/i_evidence_repository.dart'
     as _i807;
 import 'package:myapp/3_tasks/domain/i_task_repository.dart' as _i895;
 import 'package:myapp/3_tasks/domain/incidents/i_incident_repository.dart'
     as _i525;
+import 'package:myapp/3_tasks/domain/supplies/i_supply_repository.dart'
+    as _i587;
 import 'package:myapp/3_tasks/infrastructure/evidence_repository.dart' as _i79;
 import 'package:myapp/3_tasks/infrastructure/incident_repository.dart' as _i22;
+import 'package:myapp/3_tasks/infrastructure/supply_repository.dart' as _i739;
 import 'package:myapp/3_tasks/infrastructure/task_repository.dart' as _i204;
 import 'package:myapp/5_profile/application/profile_bloc.dart' as _i342;
 import 'package:myapp/5_profile/domain/i_profile_repository.dart' as _i496;
@@ -52,12 +56,18 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i970.SignInFormBloc>(
       () => _i970.SignInFormBloc(gh<_i637.IAuthFacade>()),
     );
+    gh.lazySingleton<_i587.ISupplyRepository>(
+      () => _i739.SupplyRepository(gh<_i224.AuthStorage>()),
+    );
     gh.lazySingleton<_i895.ITaskRepository>(() => _i204.TaskRepository());
     gh.lazySingleton<_i525.IIncidentRepository>(
       () => _i22.IncidentRepository(gh<_i224.AuthStorage>()),
     );
     gh.factory<_i342.ProfileBloc>(
       () => _i342.ProfileBloc(gh<_i496.IProfileRepository>()),
+    );
+    gh.factory<_i592.SupplyBloc>(
+      () => _i592.SupplyBloc(gh<_i587.ISupplyRepository>()),
     );
     gh.factory<_i434.EvidenceBloc>(
       () => _i434.EvidenceBloc(gh<_i807.IEvidenceRepository>()),
