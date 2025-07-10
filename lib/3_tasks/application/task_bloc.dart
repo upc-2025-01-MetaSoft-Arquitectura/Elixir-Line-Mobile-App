@@ -16,15 +16,19 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     on<TasksLoaded>((event, emit) async {
       emit(const TaskState.loading());
 
+      final winegrowerId = await _authStorage.getWinegrowerId();
       final fieldWorkerId = await _authStorage.getFieldWorkerId();
-      if (fieldWorkerId == null) {
+
+      if (winegrowerId == null || fieldWorkerId == null) {
         emit(const TaskState.loadFailure(TaskFailure.unauthenticated()));
         return;
       }
 
       final result = await _taskRepository.getTasksForFieldWorker(
-        fieldWorkerId,
+        winegrowerId: winegrowerId,
+        fieldWorkerId: fieldWorkerId,
       );
+
       result.fold(
         (failure) => emit(TaskState.loadFailure(failure)),
         (tasks) => emit(TaskState.loadSuccess(tasks)),

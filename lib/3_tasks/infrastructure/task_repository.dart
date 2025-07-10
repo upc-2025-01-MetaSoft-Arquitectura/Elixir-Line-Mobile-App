@@ -13,49 +13,32 @@ class TaskRepository implements ITaskRepository {
   final AuthStorage _authStorage = AuthStorage();
 
   @override
-  Future<dartz.Either<TaskFailure, List<Task>>> getTasksForWinegrower(
-    int winegrowerId,
-  ) async {
+  Future<dartz.Either<TaskFailure, List<Task>>> getTasksForFieldWorker({
+    required int winegrowerId,
+    required int fieldWorkerId,
+  }) async {
     final token = await _authStorage.getToken();
-    print('ID del viticultor: $winegrowerId');
 
     try {
       final response = await http.get(
-        Uri.parse('${ApiConstants.baseUrl}/tasks/winegrower/$winegrowerId'),
+        Uri.parse(
+          '${ApiConstants.baseUrl}/tasks/winegrower/$winegrowerId/fieldworker/$fieldWorkerId',
+        ),
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer $token',
         },
       );
 
-      print('Respuesta de la API: ${response.statusCode}');
-      print('Cuerpo de la respuesta: ${response.body}');
-
       if (response.statusCode == 200) {
         final List<dynamic> data = json.decode(response.body);
         final tasks = data.map((json) => Task.fromJson(json)).toList();
         return dartz.right(tasks);
       } else {
-        print('Error al obtener tareas: ${response.statusCode}');
         return dartz.left(const TaskFailure.unableToFetch());
       }
     } catch (e) {
-      print('Error inesperado: $e');
       return dartz.left(const TaskFailure.unexpected());
     }
-  }
-
-  @override
-  Future<dartz.Either<TaskFailure, List<Task>>> getTasksForFieldWorker(
-    int fieldWorkerId,
-  ) async {
-    final allTasks = await getTasksForWinegrower(
-      await _authStorage.getWinegrowerId() ?? 0,
-    );
-    return allTasks.fold((failure) => dartz.left(failure), (tasks) {
-      final filteredTasks =
-          tasks.where((task) => task.fieldWorkerId == fieldWorkerId).toList();
-      return dartz.right(filteredTasks);
-    });
   }
 }
