@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<TaskBloc>(
-      create: (_) => getIt<TaskBloc>(),
+      create: (_) => getIt<TaskBloc>()..add(const TaskEvent.loaded()),
       child: const _HomePageContent(),
     );
   }
@@ -33,12 +33,12 @@ class _HomePageContent extends StatefulWidget {
 class _HomePageContentState extends State<_HomePageContent> {
   String? _workerName;
   String? _profilePicture;
+  bool _isLoadingProfile = true;
 
   @override
   void initState() {
     super.initState();
     _loadProfile();
-    _loadTasks();
   }
 
   Future<void> _loadProfile() async {
@@ -46,7 +46,12 @@ class _HomePageContentState extends State<_HomePageContent> {
     final userId = await authStorage.getUserId();
     final token = await authStorage.getToken();
 
-    if (userId == null || token == null) return;
+    if (userId == null || token == null) {
+      setState(() {
+        _isLoadingProfile = false;
+      });
+      return;
+    }
 
     try {
       final response = await http.get(
@@ -55,21 +60,28 @@ class _HomePageContentState extends State<_HomePageContent> {
       );
 
       if (response.statusCode == 200) {
-        final List<dynamic> data = json.decode(response.body);
+        final data = json.decode(response.body);
         if (data.isNotEmpty) {
           setState(() {
-            _workerName = '${data[0]["name"]} ${data[0]["lastname"]}';
-            _profilePicture = data[0]["profilePicture"];
+            _workerName = '${data["name"]}';
+            _profilePicture = data["profilePicture"];
+            _isLoadingProfile = false;
+          });
+        } else {
+          setState(() {
+            _isLoadingProfile = false;
           });
         }
+      } else {
+        setState(() {
+          _isLoadingProfile = false;
+        });
       }
     } catch (e) {
-      // void
+      setState(() {
+        _isLoadingProfile = false;
+      });
     }
-  }
-
-  void _loadTasks() {
-    context.read<TaskBloc>().add(const TaskEvent.loaded());
   }
 
   @override
@@ -80,24 +92,24 @@ class _HomePageContentState extends State<_HomePageContent> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            if (_workerName != null)
+            if (_isLoadingProfile)
+              const Center(child: CircularProgressIndicator())
+            else if (_workerName != null)
               Row(
                 children: [
                   CircleAvatar(
                     radius: 30,
-                    backgroundImage:
-                        _profilePicture != null
-                            ? NetworkImage(_profilePicture!)
-                            : null,
-                    child:
-                        _profilePicture == null
-                            ? const Icon(Icons.person, size: 30)
-                            : null,
+                    backgroundImage: _profilePicture != null
+                        ? NetworkImage(_profilePicture!)
+                        : null,
+                    child: _profilePicture == null
+                        ? const Icon(Icons.person, size: 30)
+                        : null,
                   ),
                   const SizedBox(width: 16),
                   Expanded(
                     child: Text(
-                      _workerName!,
+                      'Hola! $_workerName',
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -106,7 +118,9 @@ class _HomePageContentState extends State<_HomePageContent> {
                     ),
                   ),
                 ],
-              ),
+              )
+            else
+              const Text('No se pudo cargar el perfil.'),
             const SizedBox(height: 24),
             const Text(
               'Resumen de Tareas',
@@ -117,15 +131,21 @@ class _HomePageContentState extends State<_HomePageContent> {
               builder: (context, state) {
                 return state.when(
                   initial: () => const SizedBox.shrink(),
-                  loading:
-                      () => const Center(child: CircularProgressIndicator()),
+                  loading: () =>
+                      const Center(child: CircularProgressIndicator()),
                   loadSuccess: (tasks) {
-                    final pending =
-                        tasks.where((t) => t.status == 'NOT_STARTED').length;
-                    final inProgress =
-                        tasks.where((t) => t.status == 'IN_PROCESS').length;
-                    final done =
-                        tasks.where((t) => t.status == 'FINISHED').length;
+                    if (tasks.isEmpty) {
+                      return const Text('No hay tareas disponibles.');
+                    }
+                    final pending = tasks
+                        .where((t) => t.status == 'NOT_STARTED')
+                        .length;
+                    final inProgress = tasks
+                        .where((t) => t.status == 'IN_PROCESS')
+                        .length;
+                    final done = tasks
+                        .where((t) => t.status == 'FINISHED')
+                        .length;
 
                     return Column(
                       children: [

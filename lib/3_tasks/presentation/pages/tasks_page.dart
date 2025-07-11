@@ -38,19 +38,14 @@ class _TaskPageState extends State<TaskPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Mis Tareas',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8),
-            const Text(
               'Gestiona tu trabajo diario',
               style: TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 16),
             TaskFilterChips(
               selectedFilter: selectedFilter,
-              onFilterChanged:
-                  (filter) => setState(() => selectedFilter = filter),
+              onFilterChanged: (filter) =>
+                  setState(() => selectedFilter = filter),
             ),
             const SizedBox(height: 16),
             Expanded(
@@ -58,33 +53,30 @@ class _TaskPageState extends State<TaskPage> {
                 builder: (context, state) {
                   return state.when(
                     initial: () => const SizedBox.shrink(),
-                    loading:
-                        () => const Center(child: CircularProgressIndicator()),
-                    loadSuccess:
-                        (tasks) => RefreshIndicator(
-                          onRefresh: _loadTasks,
-                          child: ListView(
-                            children:
-                                tasks
-                                    .where((task) {
-                                      switch (selectedFilter) {
-                                        case TaskFilter.all:
-                                          return true;
-                                        case TaskFilter.pending:
-                                          return task.status == 'NOT_STARTED';
-                                        case TaskFilter.inProgress:
-                                          return task.status == 'IN_PROCESS';
-                                        case TaskFilter.done:
-                                          return task.status == 'FINISHED';
-                                      }
-                                    })
-                                    .map((task) => TaskCard(task: task))
-                                    .toList(),
-                          ),
-                        ),
-                    loadFailure:
-                        (_) =>
-                            const Center(child: Text('Error al cargar tareas')),
+                    loading: () =>
+                        const Center(child: CircularProgressIndicator()),
+                    loadSuccess: (tasks) => RefreshIndicator(
+                      onRefresh: _loadTasks,
+                      child: ListView(
+                        children: tasks
+                            .where((task) {
+                              switch (selectedFilter) {
+                                case TaskFilter.all:
+                                  return true;
+                                case TaskFilter.pending:
+                                  return task.status == 'NOT_STARTED';
+                                case TaskFilter.inProgress:
+                                  return task.status == 'IN_PROCESS';
+                                case TaskFilter.done:
+                                  return task.status == 'FINISHED';
+                              }
+                            })
+                            .map((task) => TaskCard(task: task))
+                            .toList(),
+                      ),
+                    ),
+                    loadFailure: (_) =>
+                        const Center(child: Text('Error al cargar tareas')),
                   );
                 },
               ),

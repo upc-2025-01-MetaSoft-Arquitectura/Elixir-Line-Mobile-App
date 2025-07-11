@@ -8,8 +8,8 @@ import '../../1_auth/application/auth_bloc.dart';
 import '../../1_auth/application/auth_event.dart';
 
 class AppWidget extends StatelessWidget {
-  final AuthBloc authBloc =
-      getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested());
+  final AuthBloc authBloc = getIt<AuthBloc>()
+    ..add(const AuthEvent.authCheckRequested());
   late final $AppRouter _appRouter;
   late final ValueNotifier<AuthState> authNotifier;
 
@@ -32,10 +32,10 @@ class AppWidget extends StatelessWidget {
             listener: (context, state) {
               state.map(
                 initial: (_) {},
-                authenticated:
-                    (_) => _appRouter.replaceAll([const MainRoute()]),
-                unauthenticated:
-                    (_) => _appRouter.replaceAll([const SignInRoute()]),
+                authenticated: (_) =>
+                    _appRouter.replaceAll([const MainRoute()]),
+                unauthenticated: (_) =>
+                    _appRouter.replaceAll([const SignInRoute()]),
               );
             },
             child: child!,

@@ -33,6 +33,8 @@ import 'package:myapp/3_tasks/infrastructure/evidence_repository.dart' as _i79;
 import 'package:myapp/3_tasks/infrastructure/incident_repository.dart' as _i22;
 import 'package:myapp/3_tasks/infrastructure/supply_repository.dart' as _i739;
 import 'package:myapp/3_tasks/infrastructure/task_repository.dart' as _i204;
+import 'package:myapp/4_map/application/plot_bloc.dart' as _i39;
+import 'package:myapp/4_map/infrastructure/plot_repository.dart' as _i488;
 import 'package:myapp/5_profile/application/profile_bloc.dart' as _i342;
 import 'package:myapp/5_profile/domain/i_profile_repository.dart' as _i496;
 import 'package:myapp/5_profile/infrastructure/profile_repository.dart'
@@ -47,6 +49,7 @@ extension GetItInjectableX on _i174.GetIt {
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     gh.factory<_i224.AuthStorage>(() => _i224.AuthStorage());
+    gh.lazySingleton<_i488.PlotRepository>(() => _i488.PlotRepository());
     gh.lazySingleton<_i637.IAuthFacade>(() => _i725.RestAuthFacade());
     gh.lazySingleton<_i807.IEvidenceRepository>(
       () => _i79.EvidenceRepository(gh<_i224.AuthStorage>()),
@@ -72,6 +75,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i434.EvidenceBloc>(
       () => _i434.EvidenceBloc(gh<_i807.IEvidenceRepository>()),
     );
+    gh.factory<_i39.PlotBloc>(() => _i39.PlotBloc(gh<_i488.PlotRepository>()));
     gh.factory<_i682.IncidentBloc>(
       () => _i682.IncidentBloc(gh<_i525.IIncidentRepository>()),
     );

@@ -21,19 +21,20 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<({int? userId, String? email})>(
-      future: Future.wait([
-        AuthStorage().getUserId(),
-        AuthStorage().getUserEmail(),
-      ]).then(
-        (results) => (userId: results[0] as int?, email: results[1] as String?),
-      ),
+      future:
+          Future.wait([
+            AuthStorage().getUserId(),
+            AuthStorage().getUserEmail(),
+          ]).then(
+            (results) =>
+                (userId: results[0] as int?, email: results[1] as String?),
+          ),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return BlocProvider(
-            create:
-                (context) =>
-                    ProfileBloc(getIt<IProfileRepository>())
-                      ..add(ProfileEvent.loaded(snapshot.data!.userId!)),
+            create: (context) =>
+                ProfileBloc(getIt<IProfileRepository>())
+                  ..add(ProfileEvent.loaded(snapshot.data!.userId!)),
             child: _ProfileView(email: snapshot.data!.email),
           );
         } else if (snapshot.hasError) {
@@ -78,10 +79,9 @@ class _ProfileView extends StatelessWidget {
                         child: SizedBox(
                           width: 200,
                           child: ElevatedButton(
-                            onPressed:
-                                () => context.read<AuthBloc>().add(
-                                  const AuthEvent.signedOut(),
-                                ),
+                            onPressed: () => context.read<AuthBloc>().add(
+                              const AuthEvent.signedOut(),
+                            ),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: AppColors.metallicGold,
                               foregroundColor: Colors.white,
