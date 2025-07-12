@@ -10,7 +10,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
-      routes: const [HomeRoute(), TasksRoute(), MapRoute(), ProfileRoute()],
+      routes: const [HomeRoute(), TasksRoute(), ProfileRoute()],
       bottomNavigationBuilder: (_, tabsRouter) =>
           CustomBottomNavBar(tabsRouter: tabsRouter),
     );

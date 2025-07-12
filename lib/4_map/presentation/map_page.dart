@@ -40,7 +40,6 @@ class _MapPageState extends State<MapPage> {
             body: Center(child: CircularProgressIndicator()),
           );
         } else if (snapshot.hasData && snapshot.data != null) {
-          debugPrint('WinegrowerId obtenido: ${snapshot.data}');
           return BlocProvider(
             create: (_) =>
                 PlotBloc(getIt<PlotRepository>())..add(const PlotFetched()),
@@ -98,7 +97,6 @@ class _MapPageState extends State<MapPage> {
             ),
           );
         } else {
-          debugPrint('No hay WinegrowerId aún.');
           return Scaffold(
             appBar: AppBar(title: const Text('Mapa de Parcelas')),
             body: RefreshIndicator(

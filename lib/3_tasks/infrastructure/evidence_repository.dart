@@ -37,10 +37,8 @@ class EvidenceRepository implements IEvidenceRepository {
           return right([]);
         }
       } else if (response.statusCode == 404) {
-        print('No hay evidencias: 404 recibido');
         return right([]);
       } else {
-        print('Error al obtener evidencias: ${response.statusCode}');
         return left(const TaskFailure.unableToFetch());
       }
     } catch (e) {
@@ -85,16 +83,8 @@ class EvidenceRepository implements IEvidenceRepository {
       );
       request.files.add(filePart);
 
-      print('[EVIDENCE-REQUEST] Sending Evidence...');
-      print('Headers: ${request.headers}');
-      print('Evidence JSON: $evidenceJson');
-      print('Image Path: $imagePath ($mimeType)');
-
       final streamedResponse = await request.send();
       final response = await http.Response.fromStream(streamedResponse);
-
-      print('[EVIDENCE-RESPONSE] Status: ${response.statusCode}');
-      print('Response Body: ${response.body}');
 
       if (response.statusCode == 201) {
         return right(Evidence.fromJson(json.decode(response.body)));
@@ -102,8 +92,6 @@ class EvidenceRepository implements IEvidenceRepository {
         return left(const TaskFailure.unableToFetch());
       }
     } catch (e, stack) {
-      print('[EVIDENCE-ERROR] $e');
-      print(stack);
       return left(const TaskFailure.unexpected());
     }
   }

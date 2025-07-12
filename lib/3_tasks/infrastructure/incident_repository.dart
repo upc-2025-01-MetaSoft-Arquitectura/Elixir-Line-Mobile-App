@@ -83,25 +83,14 @@ class IncidentRepository implements IIncidentRepository {
       );
       request.files.add(filePart);
 
-      print('[INCIDENT-REQUEST] Enviando incidencia...');
-      print('Headers: ${request.headers}');
-      print('Incident JSON: $incidentJson');
-      print('Image Path: $imagePath ($mimeType)');
-
       final streamedResponse = await request.send();
       final response = await http.Response.fromStream(streamedResponse);
-
-      print('[INCIDENT-RESPONSE] Status: ${response.statusCode}');
-      print('Response Body: ${response.body}');
-
       if (response.statusCode == 201) {
         return right(Incident.fromJson(json.decode(response.body)));
       } else {
         return left(const TaskFailure.unableToFetch());
       }
     } catch (e, stack) {
-      print('[INCIDENT-ERROR] $e');
-      print(stack);
       return left(const TaskFailure.unexpected());
     }
   }

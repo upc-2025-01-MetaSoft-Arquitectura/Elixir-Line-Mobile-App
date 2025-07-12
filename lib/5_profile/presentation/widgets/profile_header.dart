@@ -38,7 +38,6 @@ class ProfileHeader extends StatelessWidget {
                   context: context,
                   profile: profile,
                   onSuccess: () {
-                    // Refrescar perfil
                     context.read<ProfileBloc>().add(
                       ProfileEvent.loaded(profile.userId),
                     );

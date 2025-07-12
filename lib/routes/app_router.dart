@@ -16,7 +16,6 @@ class $AppRouter extends RootStackRouter {
       children: [
         AutoRoute(page: HomeRoute.page),
         AutoRoute(page: TasksRoute.page, path: 'tasks'),
-        AutoRoute(page: MapRoute.page),
         AutoRoute(page: ProfileRoute.page),
       ],
     ),

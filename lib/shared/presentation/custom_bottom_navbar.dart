@@ -24,7 +24,6 @@ class CustomBottomNavBar extends StatelessWidget {
           icon: Icon(LucideIcons.list_checks),
           label: 'Tareas',
         ),
-        BottomNavigationBarItem(icon: Icon(LucideIcons.map_pin), label: 'Mapa'),
         BottomNavigationBarItem(
           icon: Icon(LucideIcons.circle_user),
           label: 'Perfil',

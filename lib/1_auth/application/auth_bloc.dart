@@ -16,17 +16,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           (_) => const AuthState.authenticated(),
         ),
       );
-      print(
-        'AuthBloc: Estado emitido después de AuthCheckRequested: ${state.runtimeType}',
-      );
     });
 
     on<SignedOut>((event, emit) async {
       await _authFacade.signOut();
       emit(const AuthState.unauthenticated());
-      print(
-        'AuthBloc: Estado emitido después de SignedOut: ${state.runtimeType}',
-      );
     });
   }
 }

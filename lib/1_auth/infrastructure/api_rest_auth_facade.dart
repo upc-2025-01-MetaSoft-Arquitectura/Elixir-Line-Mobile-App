@@ -36,10 +36,8 @@ class RestAuthFacade implements IAuthFacade {
           winegrowerId: 0,
           fieldWorkerId: 0,
         );
-        print('Datos guardados: ${user.id}, ${user.email}, ${user.token}');
         return right(user);
       } else {
-        print('Error en la autenticación: ${response.statusCode}');
         return left(const AuthFailure.invalidEmailAndPasswordCombination());
       }
     } catch (_) {
@@ -62,8 +60,6 @@ class RestAuthFacade implements IAuthFacade {
 
   @override
   Future<void> signOut() async {
-    print('Limpieza de AuthStorage iniciada...');
     await _authStorage.clear();
-    print('AuthStorage limpiado.');
   }
 }

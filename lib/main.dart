@@ -13,7 +13,10 @@ void main() {
   final appRouter = $AppRouter(authBloc: authBloc);
 
   runApp(
-    BlocProvider.value(value: authBloc, child: MyApp(appRouter: appRouter)),
+    BlocProvider.value(
+      value: authBloc,
+      child: MyApp(appRouter: appRouter),
+    ),
   );
 }
 
@@ -28,9 +31,9 @@ class MyApp extends StatelessWidget {
       routeInformationParser: appRouter.defaultRouteParser(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light().copyWith(
-        colorScheme: ColorScheme.light(
-          primary: const Color(0xFF81c784),
-          secondary: const Color(0xFF81d4fa),
+        colorScheme: const ColorScheme.light(
+          primary: Color(0xFF81c784),
+          secondary: Color(0xFF81d4fa),
         ),
       ),
     );
